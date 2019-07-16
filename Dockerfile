@@ -1,8 +1,6 @@
-FROM centos:5
+FROM centos:7
 
-RUN yum install -y curl fontconfig libXrender libXext libidn ImageMagick
+RUN yum install -y gcc-gfortran curl fontconfig libXrender libXext libidn ImageMagick
 
-RUN curl -SL https://www.earthsystemgrid.org/download/fileDownload.html?logicalFileId=dd9f737e-c4c5-11df-9b94-00c0f03d5b7c | tar -xzvC /usr
+RUN curl -SL https://www.earthsystemgrid.org/dataset/ncl.630.0/file/ncl_ncarg-6.3.0.Linux_CentOS7.0_x86_64_gcc482.tar.gz | tar -xzvC /usr
 ENV NCARG_ROOT /usr
-ENV NCARG_RANGS /root/MEDSLIK_II_1.01/ncl/lib/ncarg/database/rangs/
-RUN echo '*TextFuncCode : ~' > /root/.hluresfile
